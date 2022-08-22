@@ -1,4 +1,4 @@
-FROM openjdk:8-jre
+FROM openjdk:11.0-jre
 
 WORKDIR /opt
 
@@ -11,8 +11,8 @@ ENV HIVE_HOME=/opt/apache-hive-metastore-${METASTORE_VERSION}-bin
 RUN curl -L https://archive.apache.org/dist/hive/hive-standalone-metastore-${METASTORE_VERSION}/hive-standalone-metastore-${METASTORE_VERSION}-bin.tar.gz | tar zxf - && \
     curl -L https://archive.apache.org/dist/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz | tar zxf -
 
-RUN curl -o mysql-connector-java-8.0.19.jar https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.19/mysql-connector-java-8.0.19.jar && \
-    cp mysql-connector-java-8.0.19.jar ${HIVE_HOME}/lib/ && \
+RUN curl -o mysql-connector-java-8.0.30.jar https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.30/mysql-connector-java-8.0.30.jar && \
+    cp mysql-connector-java-8.0.30.jar ${HIVE_HOME}/lib/ && \
     curl -o delta-hive-assembly_2.11-0.2.0.jar https://github.com/delta-io/connectors/releases/download/v0.2.0/delta-hive-assembly_2.11-0.2.0.jar && \
     cp delta-hive-assembly_2.11-0.2.0.jar ${HIVE_HOME}/lib/ && \
     cp delta-hive-assembly_2.11-0.2.0.jar ${HADOOP_HOME}/share/hadoop/tools/lib/
