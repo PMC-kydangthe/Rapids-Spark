@@ -17,10 +17,7 @@ services:
     build: ./spark
     restart: unless-stopped
     ports:
-      - 4040:4040
-      - 7077:7077
       - 8080:8080
-      - 18080:18080
     command: sh spark-master.sh
 
   spark-worker:
@@ -67,7 +64,24 @@ services:
     restart: unless-stopped
     ports:
       - 9083:9083
+  
+  
+  jupyter:
+    build: ./jupyter
+    restart: unless-stopped
+    volumes:
+      - jupyter:/home/jovyan
+    ports:
+      - 8888:8888
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
 
 volumes:
   airflow:
   minio:
+  jupyter:
