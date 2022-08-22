@@ -29,6 +29,13 @@ services:
     ports:
       - "8081-8085:8081"
     command: sh spark-worker.sh
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
 
   minio:
     image: "minio/minio:latest"
