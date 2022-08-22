@@ -11,7 +11,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ENV PATH=$PATH:$JAVA_HOME/bin
 RUN echo $JAVA_HOME
 
-RUN apt-get update -y && \
+RUN apt-get update -y \
     && apt-get install -y build-essential \
     && apt-get autoremove -y \
     && apt-get clean
