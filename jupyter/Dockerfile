@@ -1,6 +1,7 @@
 FROM nvidia/cuda:11.7.1-devel-ubuntu20.04
 FROM jupyter/scipy-notebook:python-3.10.5
 
+USER root
 
 # Install OpenJDK 11
 RUN apt-get update && \
@@ -37,3 +38,5 @@ COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./jars /usr/local/spark/jars
+
+USER 1000
