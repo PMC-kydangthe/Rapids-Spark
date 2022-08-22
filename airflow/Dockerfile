@@ -11,11 +11,12 @@ RUN apt-get update -y && apt-get install -y libzbar-dev bash gcc git libc-dev cu
 
 # Install OpenJDK 8
 RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk ca-certificates-java && \
+    apt-get install -y openjdk-11-jdk ca-certificates-java && \
     apt-get clean && \
     update-ca-certificates -f
+    
 
-ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ENV PATH=$PATH:$JAVA_HOME/bin
 RUN echo $JAVA_HOME
 
