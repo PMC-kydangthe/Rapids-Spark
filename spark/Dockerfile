@@ -1,3 +1,4 @@
+FROM nvidia/cuda:11.7.1-devel-ubuntu20.04
 FROM python:3.10.6-bullseye
 
 # Install OpenJDK 8
