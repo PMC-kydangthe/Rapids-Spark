@@ -5,4 +5,7 @@ wget --no-verbose https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk/1.11
 wget --no-verbose https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.11.874/aws-java-sdk-bundle-1.11.874.jar
 wget --no-verbose https://repo1.maven.org/maven2/io/delta/delta-core_2.12/1.0.0/delta-core_2.12-1.0.0.jar
 wget --no-verbose https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.2.0/hadoop-aws-3.2.0.jar
+wget --no-verbose https://repo1.maven.org/maven2/com/nvidia/rapids-4-spark_2.12/22.06.0/rapids-4-spark_2.12-22.06.0.jar
+wget --no-verbose https://github.com/apache/spark/blob/master/examples/src/main/scripts/getGpusResources.sh
+
 cd ../../..
