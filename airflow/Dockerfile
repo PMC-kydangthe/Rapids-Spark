@@ -1,6 +1,11 @@
 FROM nvidia/cuda:11.7.1-devel-ubuntu20.04
 FROM python:3.10.6-bullseye
 
+RUN apt-get update -y \
+    && apt-get install -y build-essential \
+    && apt-get autoremove -y \
+    && apt-get clean
+
 # Install OpenJDK 8
 RUN apt-get update && \
     apt-get install -y openjdk-8-jdk ca-certificates-java && \
