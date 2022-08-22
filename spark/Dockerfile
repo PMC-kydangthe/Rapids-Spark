@@ -1,4 +1,4 @@
-FROM python:3.7-slim-stretch
+FROM python:3.10.6-bullseye
 
 # Install OpenJDK 8
 RUN mkdir -p /usr/share/man/man1mkdir -p /usr/share/man/man1 && \
@@ -18,10 +18,11 @@ RUN apt-get update -y && apt-get install -y libzbar-dev bash gcc git libc-dev cu
     && apt-get clean
 
 # install spark
-RUN curl -o spark-3.1.1-bin-hadoop3.2.tgz https://archive.apache.org/dist/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz && \
-    tar -xzvf spark-3.1.1-bin-hadoop3.2.tgz && \
-    mv spark-3.1.1-bin-hadoop3.2 /opt/spark && \
-    rm -rf spark-3.1.1-bin-hadoop3.2.tgz
+COPY spark-3.3.0-bin-hadoop3-scala2.13.tgz spark-3.3.0-bin-hadoop3-scala2.13.tgz
+
+RUN tar -xzvf spark-3.3.0-bin-hadoop3-scala2.13.tgz && \
+    mv park-3.3.0-bin-hadoop3-scala2.13 /opt/spark && \
+    rm -rf park-3.3.0-bin-hadoop3-scala2.13.tgz
 
 ENV SPARK_HOME=/opt/spark
 ENV PATH=$PATH:$SPARK_HOME/bin
