@@ -12,7 +12,7 @@ airflow users create \
           --lastname admin \
           --password admin \
           --role Admin \
-          --email email@email.com
+          --email ky.dangthe@pharmacity.vn
 
 airflow webserver -p 8000 & sleep 1 & airflow scheduler
 
