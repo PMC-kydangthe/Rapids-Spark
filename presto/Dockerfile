@@ -4,7 +4,7 @@ FROM openjdk:8-jre
 RUN apt-get update && apt-get install -y wget python less
 
 # Presto version will be passed in at build time
-ARG PRESTO_VERSION=0.218
+ARG PRESTO_VERSION=0.275
 
 # Set the URL to download
 ARG PRESTO_PKG=presto-server-${PRESTO_VERSION}.tar.gz
