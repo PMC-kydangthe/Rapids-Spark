@@ -1,4 +1,4 @@
-FROM openjdk:8-jre
+FROM openjdk:11.0-jre
 
 # Update the base image OS and install wget and python
 RUN apt-get update && apt-get install -y wget python less
