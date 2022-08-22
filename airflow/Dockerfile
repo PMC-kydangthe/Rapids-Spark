@@ -2,8 +2,7 @@ FROM nvidia/cuda:11.7.1-devel-ubuntu20.04
 FROM python:3.10.6-bullseye
 
 # Install OpenJDK 8
-RUN mkdir -p /usr/share/man/man1 && \
-    apt-get update && \
+RUN apt-get update && \
     apt-get install -y openjdk-8-jdk && \
     rm -rf /var/lib/apt/lists/*
 
