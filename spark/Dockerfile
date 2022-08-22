@@ -20,7 +20,7 @@ RUN apt-get update -y \
 COPY spark-3.3.0-bin-hadoop3-scala2.13.tgz spark-3.3.0-bin-hadoop3-scala2.13.tgz
 
 RUN tar -xzvf spark-3.3.0-bin-hadoop3-scala2.13.tgz && \
-    mv park-3.3.0-bin-hadoop3-scala2.13 /opt/spark && \
+    mv spark-3.3.0-bin-hadoop3-scala2.13 /opt/spark && \
     rm -rf park-3.3.0-bin-hadoop3-scala2.13.tgz
 
 ENV SPARK_HOME=/opt/spark
