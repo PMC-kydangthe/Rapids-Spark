@@ -20,7 +20,7 @@ RUN apt-get update -y \
     && apt-get autoremove -y \
     && apt-get clean
 
-USER 1000
+
 
 # install spark
 COPY spark-3.3.0-bin-hadoop3-scala2.13.tgz spark-3.3.0-bin-hadoop3-scala2.13.tgz
@@ -39,3 +39,5 @@ COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./jars /usr/local/spark/jars
+
+USER 1000
