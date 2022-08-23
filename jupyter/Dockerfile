@@ -23,11 +23,11 @@ RUN apt-get update -y \
 USER 1000
 
 # install spark
-COPY spark-3.3.0-bin-hadoop3.tgz spark-3.3.0-bin-hadoop3.tgz
+COPY spark-3.3.0-bin-hadoop3-scala2.13.tgz spark-3.3.0-bin-hadoop3-scala2.13.tgz
 
-RUN tar -xzvf spark-3.3.0-bin-hadoop3.tgz && \
-    mv spark-3.3.0-bin-hadoop3 /usr/local/spark && \
-    rm -rf spark-3.3.0-bin-hadoop3.tgz
+RUN tar -xzvf spark-3.3.0-bin-hadoop3-scala2.13.tgz && \
+    mv spark-3.3.0-bin-hadoop3-scala2.13 /usr/local/spark && \
+    rm -rf spark-3.3.0-bin-hadoop3-scala2.13.tgz
 
 
 ENV SPARK_HOME=/usr/local/spark
