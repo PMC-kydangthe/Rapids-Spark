@@ -12,7 +12,7 @@ services:
     volumes:
       - airflow:/opt/airflow/dags
     command: sleep infinity
-    depend_on:
+    depends_on:
       - spark-master
 
   spark-master:
@@ -21,7 +21,7 @@ services:
     ports:
       - 8080:8080
     command: sh spark-master.sh
-    depend_on:
+    depends_on:
       - minio
 
   spark-worker:
@@ -30,7 +30,7 @@ services:
     ports:
       - "8081-8085:8081"
     command: sh spark-worker.sh
-    depend_on:
+    depends_on:
       - spark-master
     deploy:
       resources:
@@ -70,7 +70,7 @@ services:
     restart: unless-stopped
     ports:
       - 9083:9083
-    depend_on:
+    depends_on:
       - spark-master
   
   
