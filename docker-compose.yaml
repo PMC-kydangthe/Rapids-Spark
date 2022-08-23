@@ -12,6 +12,8 @@ services:
     volumes:
       - airflow:/opt/airflow/dags
     command: sleep infinity
+    depend_on:
+      - spark-master
 
   spark-master:
     build: ./spark
@@ -19,6 +21,8 @@ services:
     ports:
       - 8080:8080
     command: sh spark-master.sh
+    depend_on:
+      - minio
 
   spark-worker:
     build: ./spark
@@ -26,6 +30,8 @@ services:
     ports:
       - "8081-8085:8081"
     command: sh spark-worker.sh
+    depend_on:
+      - spark-master
     deploy:
       resources:
         reservations:
@@ -33,7 +39,7 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
-
+     
   minio:
     image: "minio/minio:latest"
     volumes:
@@ -64,6 +70,8 @@ services:
     restart: unless-stopped
     ports:
       - 9083:9083
+    depend_on:
+      - spark-master
   
   
   jupyter:
@@ -73,8 +81,7 @@ services:
       - jupyter:/home/jovyan
     ports:
       - 8888:8888
-    environment:
-      PASSWORD: admin
+
 
 volumes:
   airflow:
